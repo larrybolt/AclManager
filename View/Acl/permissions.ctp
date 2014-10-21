@@ -1,3 +1,24 @@
+<div class="container">
+<div class="actions">
+	<h3><?php echo __('Manage for'); ?></h3>
+	<?php 
+	$aroModels = Configure::read("AclManager.aros");
+	if ($aroModels > 1): ?>
+		<ul><?php foreach ($aroModels as $aroModel): ?>
+			<li><?php echo $this->Html->link($aroModel, array('aro' => $aroModel)); ?></li>
+		<?php endforeach; ?>
+		</ul>
+	<?php endif; ?>
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('< Back'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Manage permissions'), array('action' => 'permissions')); ?></li>
+		<li><?php echo $this->Html->link(__('Update ACOs'), array('action' => 'update_acos')); ?></li>
+		<li><?php echo $this->Html->link(__('Update AROs'), array('action' => 'update_aros')); ?></li>
+		<li><?php echo $this->Html->link(__('Drop ACOs/AROs'), array('action' => 'drop'), array(), __("Do you want to drop all ACOs and AROs?")); ?></li>
+		<li><?php echo $this->Html->link(__('Drop permissions'), array('action' => 'drop_perms'), array(), __("Do you want to drop all the permissions?")); ?></li>
+	</ul>
+</div>
 <div class="form">
 <h3><?php echo sprintf(__("%s permissions"), $aroAlias); ?></h3>
 <p><?php echo $this->Paginator->counter(array('format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%'))); ?></p>
@@ -55,23 +76,4 @@ echo $this->Form->end(__("Save"));
 	<?php echo $this->Paginator->next(__('next') . ' >>', array(), null, array('class' => 'disabled'));?>
 </div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Manage for'); ?></h3>
-	<?php 
-	$aroModels = Configure::read("AclManager.aros");
-	if ($aroModels > 1): ?>
-		<ul><?php foreach ($aroModels as $aroModel): ?>
-			<li><?php echo $this->Html->link($aroModel, array('aro' => $aroModel)); ?></li>
-		<?php endforeach; ?>
-		</ul>
-	<?php endif; ?>
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('< Back'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('Manage permissions'), array('action' => 'permissions')); ?></li>
-		<li><?php echo $this->Html->link(__('Update ACOs'), array('action' => 'update_acos')); ?></li>
-		<li><?php echo $this->Html->link(__('Update AROs'), array('action' => 'update_aros')); ?></li>
-		<li><?php echo $this->Html->link(__('Drop ACOs/AROs'), array('action' => 'drop'), array(), __("Do you want to drop all ACOs and AROs?")); ?></li>
-		<li><?php echo $this->Html->link(__('Drop permissions'), array('action' => 'drop_perms'), array(), __("Do you want to drop all the permissions?")); ?></li>
-	</ul>
 </div>

@@ -1,3 +1,4 @@
+<div class="container">
 <div class="view">
 	<h3><?php echo sprintf(__('Acl Manager %s'), Configure::read('AclManager.version')); ?></h3>
 	<p>This plugin allows you to easily manage your permissions. To use it you need to set up your Acl environment.</p>
@@ -13,4 +14,5 @@
 		<li><?php echo $this->Html->link(__('Drop ACOs/AROs'), array('action' => 'drop'), array(), __("Do you want to drop all ACOs and AROs?")); ?></li>
 		<li><?php echo $this->Html->link(__('Drop permissions'), array('action' => 'drop_perms'), array(), __("Do you want to drop all the permissions?")); ?></li>
 	</ul>
+</div>
 </div>
